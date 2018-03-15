@@ -15,6 +15,7 @@ export default new Vuex.Store({
       return state.adherents.length;
     },
     adherents(state) {
+
       return state.adherents;
     },
   },

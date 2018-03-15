@@ -28,30 +28,29 @@ export default {
    methods: {
     Connection: function (login,mdp) {
 
-        if (document.getElementById('connectAdh').checked === true) {
-          console.log('Connection en adh');
-          console.log(login);
-          console.log(mdp);
-          this.$store.commit({
-              type: 'POPULATE_ADHERENTS',
-              adherent: login
-          })
-          this.$store.dispatch("getAdherentsLogin",[login]);
-          
-
-        }
-        if (document.getElementById('connectAsso').checked === true) {
-          console.log('Connection en asso');
-          console.log(this.login);
-          console.log(this.mdp);
-        }
+      if (document.getElementById('connectAdh').checked === true) {
+        console.log('Connection en adh');
+        console.log(login);
+        console.log(mdp);
+        this.$store.commit({
+            type: 'POPULATE_ADHERENTS',
+            adherent: login
+        })
+        this.$store.dispatch("getAdherentsLogin",[login],100);
+        console.log(adherents.loginAdh);
+      }
+      if (document.getElementById('connectAsso').checked === true) {
+        console.log('Connection en asso');
+        console.log(this.login);
+        console.log(this.mdp);
+      }
     },
   },
-  computed:{
-      adherents(){
-          return this.$store.getters.adherents;
-      }
-  }
+  computed: {
+    adherents() {
+      return this.$store.getters.adherents;
+    },
+  },
 };
 </script>
 
